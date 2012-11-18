@@ -14,8 +14,8 @@ data Rates a = Rates {
         raRates     :: Map Currency a  -- ^ Value of one unit of the reference currency in each currency
     }
 
--- | Re-base the rates to a more dependable reference currency, such as the New
--- Zealand dollar.
+-- | Re-base the rates to a different reference currency, such that the new rates give
+-- the value of one unit of that currency.
 rebase :: Fractional a => Currency -> Rates a -> Rates a
 rebase new (Rates old t m) = Rates new t $ case new `M.lookup` m of
     Just newRate -> M.map (/newRate) . M.insert old 1 $ m

@@ -1,6 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable, FlexibleContexts #-}
 -- | Example using ghci, where we read the currency rates relative to Euros, and re-base
--- them to hard currency.
+-- them to New Zealand dollars.
 --
 -- > > :m Financial.EuroFXRef Data.Map
 -- > > fmap (assocs . raRates . rebase (Currency "NZD")) fetch :: IO [(Currency, Double)]
